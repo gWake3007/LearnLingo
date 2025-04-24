@@ -1,23 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useLocalStorage } from './utils/customHocks/useLocalStorage.js';
 import './App.css';
 
 function App() {
-  const key = 'name';
-
-  const getStoredValue = () => {
-    try {
-      const item = localStorage.getItem(key);
-    } catch (error) {}
-  };
-
-  const [name, setName] = useState(() => {
-    const savedName = localStorage.getItem('name');
-    return savedName ? savedName : 'Serhii';
-  });
-
-  useEffect(() => {
-    localStorage.setItem('name', name);
-  }, [name]);
+  const [name, setName, removeName] = useLocalStorage('name', 'guest');
 
   return (
     <>
@@ -28,7 +13,7 @@ function App() {
         placeholder="Please enter your Name"
         onChange={e => setName(e.target.value)}
       />
-      <button onClick={() => setName('')}>Clear name</button>
+      <button onClick={removeName}>Clear name</button>
     </>
   );
 }
