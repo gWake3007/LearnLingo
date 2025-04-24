@@ -2,7 +2,22 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [name, setName] = useState('Serhii');
+  const key = 'name';
+
+  const getStoredValue = () => {
+    try {
+      const item = localStorage.getItem(key);
+    } catch (error) {}
+  };
+
+  const [name, setName] = useState(() => {
+    const savedName = localStorage.getItem('name');
+    return savedName ? savedName : 'Serhii';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('name', name);
+  }, [name]);
 
   return (
     <>
