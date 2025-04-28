@@ -52,3 +52,22 @@ export const loginFormValidationSchema = Yup.object({
     .min(8, 'Your password is too short!')
     .max(64, 'Your password is too long!'),
 });
+
+export const validationSchema = Yup.object().shape({
+  name: Yup.string()
+    .test(
+      'is-full-name',
+      'User name is not valid. Format should be FirstName LastName',
+      value => nameValidation(value) === true
+    )
+    .required('Required'),
+  email: Yup.string()
+    .required('Email is required')
+    .email('Invalid email address'),
+  number: Yup.string()
+    .matches(
+      /^\d{3}-\d{2}-\d{2}$/,
+      'Phone number is not valid. Format should be 555-55-55'
+    )
+    .required('Required'),
+});
