@@ -17,9 +17,6 @@ const AuthFormInput = ({ errors, touched, type, placeholder }) => {
 
   return (
     <div className={css.wrap}>
-      {/* <label className={css.label} htmlFor={`${type}${id}`}>
-        {placeholder}
-      </label> */}
       <Field
         className={clsx(css.input, {
           [css.inputError]: errors.password && touched.password,

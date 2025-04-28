@@ -1,7 +1,7 @@
 import { Form, Formik } from 'formik';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import css from './AuthForm.module.css';
 
 import { registerUser, loginUser } from '../../redux/auth/operations.js';
@@ -29,7 +29,7 @@ const AuthForm = () => {
             toast.error(`Authentication failed, please try again!`);
           });
       } else if (pathname === '/signup') {
-        await dispatch(register({ name, email, password }))
+        await dispatch(registerUser({ name, email, password }))
           .unwrap()
           .then(() => {
             toast.success('Registration successful!');
