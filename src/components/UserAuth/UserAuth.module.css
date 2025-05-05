@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.authBtn {
+  height: 20px;
+  width: 73px;
+}
+
+.icon {
+  color: var(--yellow);
+}
+
+.userContainer {
+  height: 48px;
+  width: 166px;
+}
+
+.registrationBtn {
+  height: 48px;
+  width: 166px;
+  color: white;
+  background-color: black;
+}
+
+.userIcon {
+  background-color: var(--orange);
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+}
