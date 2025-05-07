@@ -1,20 +1,83 @@
-import { useLocalStorage } from './utils/customHocks/useLocalStorage.js';
+// import { useLocalStorage } from './utils/customHocks/useLocalStorage.js';
+// import './App.css';
+
+// function App() {
+//   const [name, setName, removeName] = useLocalStorage('name', 'guest');
+
+//   return (
+//     <>
+//       <h1>Hello {name}!</h1>
+//       <input
+//         type="text"
+//         value={name}
+//         placeholder="Please enter your Name"
+//         onChange={e => setName(e.target.value)}
+//       />
+//       <button onClick={removeName}>Clear name</button>
+//     </>
+//   );
+// }
+
+// export default App;
+
+import { Toaster } from 'react-hot-toast';
+import { lazy, useState, useEffect, Suspense } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import SharedLayout from './components/SharedLayout/SharedLayout.jsx';
+import PublicRoute from './components/Routing/PublicRoute.jsx';
+import PrivateRoute from './components/Routing/PrivateRoute.jsx';
+
 import './App.css';
 
-function App() {
-  const [name, setName, removeName] = useLocalStorage('name', 'guest');
+const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
+const TeachersPage = lazy(() =>
+  import('./pages/TeachersPage/TeachersPage.jsx')
+);
+const FavoritesPage = lazy(() =>
+  import('./pages/FavoritesPage/FavoritesPage.jsx')
+);
 
+const NotFoundPage = lazy(() =>
+  import('./pages/NotFoundPage/NotFoundPage.jsx')
+);
+
+function App() {
   return (
-    <>
-      <h1>Hello {name}!</h1>
-      <input
-        type="text"
-        value={name}
-        placeholder="Please enter your Name"
-        onChange={e => setName(e.target.value)}
-      />
-      <button onClick={removeName}>Clear name</button>
-    </>
+    <div>
+      <Suspense>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route
+              path="/home"
+              element={
+                <PublicRoute>
+                  <HomePage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/teachers"
+              element={
+                <PublicRoute>
+                  <TeachersPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/favorites"
+              element={
+                <PrivateRoute>
+                  <FavoritesPage />
+                </PrivateRoute>
+              }
+            />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
+    </div>
   );
 }
 
