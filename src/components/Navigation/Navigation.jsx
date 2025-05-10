@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { selectUser } from '../../redux/auth/selectors.js';
 
 import css from './Navigation.module.css';
 import clsx from 'clsx';
@@ -14,7 +14,7 @@ const Navigation = () => {
 
   return (
     <nav className={css.nav}>
-      <NavLink className={getClassNames} to="/">
+      <NavLink className={getClassNames} to="/home">
         Home
       </NavLink>
       <NavLink className={getClassNames} to="/teachers">

@@ -7,7 +7,7 @@ import css from './Header.module.css';
 const Header = () => {
   return (
     <header className={css.header}>
-      <Link to="/">
+      <Link to="/home">
         <Logo />
       </Link>
       <Navigation />
