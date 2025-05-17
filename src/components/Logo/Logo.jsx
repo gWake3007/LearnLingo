@@ -8,7 +8,7 @@ const Logo = () => {
         src="../../../public/header/logo_1x.png"
         alt="Ukraine-logo"
       />
-      <p className={css.text}></p>
+      <p className={css.text}>LearnLingo</p>
     </div>
   );
 };

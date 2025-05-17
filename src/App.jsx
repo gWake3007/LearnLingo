@@ -25,6 +25,7 @@ import { lazy, useState, useEffect, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import ModalAuth from './components/ModalAuth/ModalAuth.jsx';
 import SharedLayout from './components/SharedLayout/SharedLayout.jsx';
 import PublicRoute from './components/Routing/PublicRoute.jsx';
 import PrivateRoute from './components/Routing/PrivateRoute.jsx';
@@ -76,6 +77,7 @@ function App() {
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        <ModalAuth />
       </Suspense>
     </div>
   );

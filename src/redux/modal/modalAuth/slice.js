@@ -6,12 +6,13 @@ const initialState = {
 };
 
 const modalAuthSlice = createSlice({
-  name: 'modal',
+  name: 'modalAuth',
   initialState,
   reducers: {
     openModal: (state, { payload }) => {
+      // const type = payload?.modalType || 'Login';
       state.isOpen = true;
-      state.modalType = payload.type; //Register or Login
+      state.modalType = payload.modalType; //Register or Login
     },
     closeModal: state => {
       state.isOpen = false;
