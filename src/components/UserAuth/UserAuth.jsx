@@ -22,7 +22,7 @@ const UserAuth = () => {
         <button
           className={css.authBtn}
           type="button"
-          onClick={() => dispatch(() => logoutUser())}
+          onClick={() => dispatch(logoutUser())}
         >
           <TbLogin className={css.icon} size={20} />
           log out
@@ -45,7 +45,7 @@ const UserAuth = () => {
         <button
           className={css.registrationBtn}
           type="button"
-          onClick={() => handleOpenModal('Registration')}
+          onClick={() => handleOpenModal('Register')}
         >
           Registration
         </button>
