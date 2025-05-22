@@ -3,8 +3,9 @@ import { TbLogin } from 'react-icons/tb';
 import { useSelector, useDispatch } from 'react-redux';
 import { openModal } from '../../redux/modal/modalAuth/slice.js';
 import { logoutUser } from '../../redux/auth/operations.js';
-import { selectAuthModalState } from '../../redux/modal/modalAuth/selectors.js';
 import { selectUser } from '../../redux/auth/selectors.js';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import css from './UserAuth.module.css';
 
 const UserAuth = () => {
@@ -12,18 +13,25 @@ const UserAuth = () => {
 
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const handleOpenModal = modalType => {
     dispatch(openModal({ modalType }));
+  };
+
+  const logOut = () => {
+    try {
+      dispatch(logoutUser());
+      navigate('/home');
+    } catch (error) {
+      toast.error(`Log out Error`);
+    }
   };
 
   return (
     <div className={css.container}>
       {user ? (
-        <button
-          className={css.authBtn}
-          type="button"
-          onClick={() => dispatch(logoutUser())}
-        >
+        <button className={css.authBtn} type="button" onClick={logOut}>
           <TbLogin className={css.icon} size={20} />
           log out
         </button>

@@ -6,7 +6,9 @@ const SharedLayout = () => {
   return (
     <div className={css.layout}>
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };

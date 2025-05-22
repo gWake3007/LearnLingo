@@ -21,9 +21,8 @@
 // export default App;
 
 import { Toaster } from 'react-hot-toast';
-import { lazy, useState, useEffect, Suspense } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 import ModalAuth from './components/ModalAuth/ModalAuth.jsx';
 import SharedLayout from './components/SharedLayout/SharedLayout.jsx';
@@ -53,7 +52,7 @@ function App() {
             <Route
               path="/home"
               element={
-                <PublicRoute>
+                <PublicRoute restricted={false}>
                   <HomePage />
                 </PublicRoute>
               }
@@ -61,7 +60,7 @@ function App() {
             <Route
               path="/teachers"
               element={
-                <PublicRoute>
+                <PublicRoute restricted={false}>
                   <TeachersPage />
                 </PublicRoute>
               }

@@ -1,6 +1,7 @@
 import { Form, Formik } from 'formik';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { closeModal } from '../../redux/modal/modalAuth/slice.js';
 import { selectAuthModalType } from '../../redux/modal/modalAuth/selectors.js';
 import css from './AuthForm.module.css';
@@ -14,6 +15,7 @@ import AuthFormInput from '../AuthFormInput/AuthFormInput.jsx';
 
 const AuthForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const modalType = useSelector(selectAuthModalType);
 
   const handleSubmit = async (values, actions) => {
@@ -26,6 +28,7 @@ const AuthForm = () => {
           .then(() => {
             toast.success('Authentication successful!');
             dispatch(closeModal());
+            navigate('/favorites');
           })
           .catch(error => {
             toast.error(`Authentication failed, please try again!`);
@@ -36,6 +39,7 @@ const AuthForm = () => {
           .then(() => {
             toast.success('Registration successful!');
             dispatch(closeModal());
+            navigate('/favorites');
           })
           .catch(error => {
             toast.error(`Registration failed, please try again!`);
