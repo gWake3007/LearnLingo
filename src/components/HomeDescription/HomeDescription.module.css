@@ -1,14 +1,108 @@
 .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1312px;
+  height: 116px;
+  background-color: white;
+  border-radius: 16px;
+  z-index: 0;
 }
 
+.container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 1;
+
+  background: repeating-linear-gradient(
+        to right,
+        var(--yellow) 0 10px,
+        transparent 10px 20px
+      )
+      top center / 100% 2px no-repeat,
+    repeating-linear-gradient(
+        to bottom,
+        var(--yellow) 0 10px,
+        transparent 10px 20px
+      )
+      right center / 2px 100% no-repeat,
+    repeating-linear-gradient(
+        to right,
+        var(--yellow) 0 10px,
+        transparent 10px 20px
+      )
+      bottom center / 100% 2px no-repeat,
+    repeating-linear-gradient(
+        to bottom,
+        var(--yellow) 0 10px,
+        transparent 10px 20px
+      )
+      left center / 2px 100% no-repeat;
+
+  background-repeat: no-repeat;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1.5px; /* товщина пунктиру */
+  box-sizing: border-box;
+}
+
+/* .container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(
+        to right,
+        var(--yellow) 0 10px,
+        transparent 10px 20px
+      )
+      top left / 100% 2px repeat-x,
+    linear-gradient(to bottom, var(--yellow) 0 10px, transparent 10px 20px) top
+      left / 2px 100% repeat-y,
+    linear-gradient(to right, var(--yellow) 0 10px, transparent 10px 20px)
+      bottom left / 100% 2px repeat-x,
+    linear-gradient(to bottom, var(--yellow) 0 10px, transparent 10px 20px) top
+      right / 2px 100% repeat-y;
+  background-repeat: no-repeat;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+} */
+
 .list {
+  width: 1067px;
+  max-height: 36px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  gap: 100px;
 }
 
 .item {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
 }
 
 .item strong {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
 }
 
 .item p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
 }

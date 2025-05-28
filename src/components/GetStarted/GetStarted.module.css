@@ -1,0 +1,68 @@
+.background {
+  width: 720px;
+  height: 530px;
+  background-color: var(--background);
+  border: 1px solid var(--background);
+  border-radius: 30px;
+}
+
+.container {
+  width: 592px;
+  height: 334px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.titleContainer {
+  width: 548px;
+  height: 112px;
+  padding-bottom: 32px;
+}
+
+.title {
+  color: var(--black);
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.title span {
+  color: var(--black);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.descContainer {
+  width: 471px;
+  height: 66px;
+  padding-bottom: 64px;
+}
+
+.description {
+  color: var(--black);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.375;
+  letter-spacing: -0.02em;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--black);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0em;
+  border: 1px solid var(--yellow);
+  border-radius: 16px;
+  background-color: var(--yellow);
+  padding: 16px 88px;
+}
