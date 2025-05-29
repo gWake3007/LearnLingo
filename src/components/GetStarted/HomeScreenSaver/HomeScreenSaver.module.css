@@ -1,0 +1,38 @@
+.container {
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 568px;
+  height: 530px;
+  border-radius: 16px;
+  background-color: var(--white-lemon);
+}
+
+.imageWrapper {
+  transform: translateY(65px);
+}
+
+.picture {
+  width: 339px;
+  height: 339px;
+  z-index: -1;
+}
+
+.laptop {
+  width: 360px;
+  height: 247px;
+  display: grid;
+  place-items: center;
+  background-image: linear-gradient(180deg, #eeb055 0%, #d08f38 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.macIcon {
+  width: 46.05px;
+  height: 55.78px;
+  fill: linear-gradient(180deg, #fbe9ba 0%, #e7c885 100%);
+}
