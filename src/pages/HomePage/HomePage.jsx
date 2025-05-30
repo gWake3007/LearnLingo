@@ -1,6 +1,6 @@
 import css from './HomePage.module.css';
 import GetStarted from '../../components/GetStarted/GetStarted.jsx';
-import HomeScreenSaver from '../../components/GetStarted/HomeScreenSaver/HomeScreenSaver.jsx';
+import HomeScreenSaver from '../../components/HomeScreenSaver/HomeScreenSaver.jsx';
 import HomeDescription from '../../components/HomeDescription/HomeDescription.jsx';
 
 const HomePage = () => {

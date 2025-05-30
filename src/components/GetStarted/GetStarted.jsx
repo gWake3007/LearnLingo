@@ -1,6 +1,13 @@
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../redux/modal/modalAuth/slice.js';
 import css from './GetStarted.module.css';
 
 const GetStarted = () => {
+  const dispatch = useDispatch();
+
+  const handleOpenModal = modalType => {
+    dispatch(openModal({ modalType }));
+  };
   return (
     <div className={css.container}>
       <h1 className={css.title}>
@@ -11,7 +18,11 @@ const GetStarted = () => {
         Elevate your language proficiency to new heights by connecting with
         highly qualified and experienced tutors.
       </p>
-      <button className={css.btn} type="button">
+      <button
+        className={css.btn}
+        type="button"
+        onClick={() => handleOpenModal('Register')}
+      >
         Get started
       </button>
     </div>

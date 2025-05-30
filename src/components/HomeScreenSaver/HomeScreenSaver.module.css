@@ -6,6 +6,7 @@
   height: 530px;
   border-radius: 16px;
   background-color: var(--white-lemon);
+  overflow: hidden;
 }
 
 .imageWrapper {
@@ -27,12 +28,12 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border-radius: 5px;
+  border-radius: 7px;
   z-index: 1;
 }
 
 .macIcon {
+  transform: translateY(-25px);
   width: 46.05px;
   height: 55.78px;
-  fill: linear-gradient(180deg, #fbe9ba 0%, #e7c885 100%);
 }

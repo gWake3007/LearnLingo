@@ -13,7 +13,7 @@ const HomeScreenSaver = () => {
       </div>
       <div className={css.laptop}>
         <svg className={css.macIcon}>
-          <use href="../../../../public/header/Mac.svg"></use>
+          <use href="../../../../public/header/Mac.svg#Mac"></use>
         </svg>
       </div>
     </div>
