@@ -1,0 +1,10 @@
+.btn {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0%;
+  padding: 16px 48px;
+  border-radius: 12px;
+  background-color: var(--yellow);
+}
