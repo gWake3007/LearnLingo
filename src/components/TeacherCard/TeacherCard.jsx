@@ -58,8 +58,10 @@ const TeacherCard = () => {
             </li>
           </ul>
         </div>
-        <button type="button">Read more</button>
-        <ul>
+        <button type="button" className={css.readMoreBtn}>
+          Read more
+        </button>
+        <ul className={css.lagnLevelList}>
           <li></li>
           <li></li>
           <li></li>
