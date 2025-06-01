@@ -6,7 +6,6 @@ import TeacherCard from '../../components/TeacherCard/TeacherCard.jsx';
 const TeachersPage = () => {
   return (
     <div className={css.page}>
-      TeachersPage
       <SelectOptions />
       <TeacherCard />
       <BtnLoadMore />

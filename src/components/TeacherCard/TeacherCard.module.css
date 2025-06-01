@@ -1,0 +1,107 @@
+.container {
+  padding: 24px;
+  border-radius: 24px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.imageContainer {
+  width: 120px;
+  height: 120px;
+  border: 3px solid var(--white-lemon);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+}
+
+.teacherInfoContainer {
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 149px;
+}
+
+.nameContainer {
+}
+
+.nameContainer p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--description);
+}
+
+.nameContainer h2 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--black);
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 64px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+
+.list li {
+  display: flex;
+  flex-direction: row;
+}
+
+.list li img {
+  width: 16px;
+  height: 16px;
+}
+
+.svgImage {
+  width: 16px;
+  height: 16px;
+  fill: white;
+  stroke: black;
+}
+
+.heartBtn {
+}
+
+.aboutTeacherContainer {
+}
+
+.aboutTeacherContainer ul {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.aboutTeacherContainer li {
+  color: var(--black);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.aboutTeacherContainer span {
+  color: var(--description);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+}

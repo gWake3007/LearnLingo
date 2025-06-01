@@ -22,7 +22,7 @@
 
 import { Toaster } from 'react-hot-toast';
 import { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import ModalAuth from './components/ModalAuth/ModalAuth.jsx';
 import SharedLayout from './components/SharedLayout/SharedLayout.jsx';
@@ -49,6 +49,7 @@ function App() {
       <Suspense>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Navigate to="/home" replace />} />
             <Route
               path="/home"
               element={

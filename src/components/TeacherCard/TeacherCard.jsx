@@ -14,12 +14,30 @@ const TeacherCard = () => {
           </div>
           <div className={css.infoContainer}>
             <ul className={css.list}>
-              <li>Lessons online</li>
-              <li>Lessons done: 1098</li>
-              <li>Rating: 4.8</li>
-              <li>Price / 1 hour: 30$</li>
+              <li>
+                <svg className={css.svgImage}>
+                  <use href="../../../public/header/book-open.svg#book"></use>
+                </svg>
+                Lessons online
+              </li>
+              <li>
+                Lessons done: <span>1098</span>
+              </li>
+              <li>
+                <img
+                  src="../../../public/header/star_1x.png"
+                  srcSet=""
+                  alt="star"
+                />
+                Rating: <span>4.8</span>
+              </li>
+              <li>
+                Price / 1 hour: <span>30$</span>
+              </li>
             </ul>
-            <button type="button">Heart</button>
+            <button className={css.heartBtn} type="button">
+              Heart
+            </button>
           </div>
         </div>
         <div className={css.aboutTeacherContainer}>
@@ -41,6 +59,12 @@ const TeacherCard = () => {
           </ul>
         </div>
         <button type="button">Read more</button>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     </div>
   );
