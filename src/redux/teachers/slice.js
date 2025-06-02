@@ -25,7 +25,7 @@ const teachersSlice = createSlice({
       })
       .addCase(fetchTeachers.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.quizzesItems = payload;
+        state.teachersItem = payload;
       })
       .addCase(fetchTeachers.rejected, (state, { payload }) => {
         state.loading = false;
