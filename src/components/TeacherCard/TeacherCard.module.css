@@ -149,6 +149,64 @@
   color: var(--black);
 }
 
+.commentList {
+}
+
+.commentItem {
+}
+
+.commentBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.commentImg {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--grey-blue);
+  color: var(--white);
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.commentName {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--description);
+}
+
+.commentBoxStar {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.commentStar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.commentStar img {
+}
+
+.commentStar span {
+}
+
+.comment {
+}
+
 .bookBtn {
   font-family: Roboto;
   font-weight: 700;

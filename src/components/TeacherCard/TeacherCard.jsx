@@ -37,7 +37,8 @@ const TeacherCard = () => {
                 Lessons online
               </li>
               <li>
-                Lessons done: <span>{teacher.lessons_done}</span>
+                Lessons done:
+                <span> {teacher.lessons_done}</span>
               </li>
               <li>
                 <img
@@ -87,16 +88,22 @@ const TeacherCard = () => {
             {teacher.reviews.map(
               ({ comment, reviewer_name, reviewer_rating }, idx) => (
                 <li key={idx} className={css.commentItem}>
-                  <div>
-                    <div className={css.commentImg}></div>
-                    <h4>{reviewer_name}</h4>
-                    <div>
-                      <img
-                        src="../../../public/header/star_1x.png"
-                        srcSet="../../../public/header/star_1x.png 1x, ../../../public/header/star_2x.png 2x"
-                        alt={reviewer_name}
-                      />
-                      <span>{reviewer_rating}</span>
+                  <div className={css.commentBox}>
+                    <div className={css.commentImg}>
+                      {reviewer_name.charAt(0)}
+                    </div>
+                    <div className={css.commentBoxStar}>
+                      <h4 className={css.commentName}>{reviewer_name}</h4>
+                      <div className={css.commentStar}>
+                        <img
+                          width="16px"
+                          height="16px"
+                          src="../../../public/header/star_1x.png"
+                          srcSet="../../../public/header/star_1x.png 1x, ../../../public/header/star_2x.png 2x"
+                          alt={reviewer_name}
+                        />
+                        <span>{reviewer_rating}.0</span>
+                      </div>
                     </div>
                   </div>
                   <p className={css.comment}>{comment}</p>
