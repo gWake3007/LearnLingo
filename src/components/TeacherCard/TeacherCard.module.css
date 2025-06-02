@@ -25,6 +25,7 @@
 }
 
 .teacherInfoContainer {
+  max-width: 968px;
 }
 
 .titleContainer {
@@ -138,4 +139,23 @@
 .lagnLevelList li:first-child {
   border: none;
   background-color: var(--yellow);
+}
+
+.experience {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+.bookBtn {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--black);
+  background-color: var(--yellow);
+  padding: 16px 48px;
+  border-radius: 12px;
 }
