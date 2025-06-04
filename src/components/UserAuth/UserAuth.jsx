@@ -47,7 +47,9 @@ const UserAuth = () => {
       )}
       {user ? (
         <div className={css.userContainer}>
-          <div className={css.userIcon}>{user.name || 'User'}</div>
+          <div className={css.userIcon}>
+            {user.name.charAt(0).toUpperCase() || 'User'}
+          </div>
         </div>
       ) : (
         <button

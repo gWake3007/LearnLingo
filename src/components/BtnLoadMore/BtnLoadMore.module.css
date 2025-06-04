@@ -8,3 +8,9 @@
   border-radius: 12px;
   background-color: var(--yellow);
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

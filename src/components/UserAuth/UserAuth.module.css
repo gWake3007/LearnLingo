@@ -1,12 +1,14 @@
 .container {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 16px;
 }
 
 .authBtn {
-  height: 20px;
-  width: 73px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
 
 .icon {
@@ -19,13 +21,24 @@
 }
 
 .registrationBtn {
-  height: 48px;
-  width: 166px;
-  color: white;
-  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 39px;
+  border-radius: 12px;
+  color: var(--white);
+  background-color: var(--black);
 }
 
 .userIcon {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
   background-color: var(--orange);
   height: 48px;
   width: 48px;
