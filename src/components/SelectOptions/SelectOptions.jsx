@@ -1,64 +1,85 @@
 import css from './SelectOptions.module.css';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { selectTeachers } from '../../redux/teachers/selectors.js';
+import { useSelector } from 'react-redux';
 
 const SelectOptions = () => {
-  const [language, setLanguage] = useState('');
-  const [levelOfKnowledge, setLevelOfKnowledge] = useState('');
-  const [price, setPrice] = useState('');
+  const teachers = useSelector(selectTeachers);
 
-  const handleChangeLanguage = e => {
-    setLanguage(e.target.value);
-  };
+  const uniqueLanguages = useMemo(() => {
+    const all = teachers.flatMap(t => t.languages || []);
+    return [...new Set(all)].sort();
+  }, [teachers]);
 
-  const handleChangeLevelOfKnowledge = e => {
-    setLevelOfKnowledge(e.target.value);
-  };
+  const uniquePrices = useMemo(() => {
+    const all = teachers.map(t => t.price_per_hour);
+    return [...new Set(all)].sort((a, b) => a - b);
+  }, [teachers]);
 
-  const handleChangePrice = e => {
-    setPrice(e.target.price);
+  const uniqueLevels = useMemo(() => {
+    const allLevels = teachers.flatMap(t => t.levels || []);
+    return [...new Set(allLevels)].sort();
+  }, [teachers]);
+
+  const [filters, setFilters] = useState({
+    languages: '',
+    levelOfKnowledge: '',
+    price: '',
+  });
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setFilters(prev => ({ ...prev, [name]: value }));
   };
 
   return (
     <div className={css.container}>
       <div className={css.lagnContainer}>
         <label htmlFor="languages">Languages</label>
-        <select id="languages" value={language} onChange={handleChangeLanguage}>
+        <select
+          id="languages"
+          name="languages"
+          value={filters.languages}
+          onChange={handleChange}
+        >
           <option value="">Select</option>
-          <option value="english">English</option>
-          <option value="spanish">Spanish</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="mandarinChinese">Mandarin Chinese</option>
-          <option value="vietnamese">Vietnamese</option>
-          <option value="italian">Italian</option>
-          <option value="korean">Korean</option>
+          {uniqueLanguages.map(lang => (
+            <option key={lang} value={lang}>
+              {lang}
+            </option>
+          ))}
         </select>
       </div>
       <div className={css.langLevelContainer}>
         <label htmlFor="levelOfKnowledge">Level of knowledge</label>
         <select
-          id="{levelOfKnowledge}"
-          value={levelOfKnowledge}
-          onChange={handleChangeLevelOfKnowledge}
+          id="levelOfKnowledge"
+          name="levelOfKnowledge"
+          value={filters.levelOfKnowledge}
+          onChange={handleChange}
         >
           <option value="">Select</option>
-          <option value="beginner">A1 Beginner</option>
-          <option value="elementary">A2 Elementary</option>
-          <option value="intermediate">B1 Intermediate</option>
-          <option value="upperIntermediate">B2 Upper-Intermediate</option>
-          <option value="advanced">C1 Advanced</option>
-          <option value="proficient">C2 Proficient</option>
+          {uniqueLevels.map(level => (
+            <option key={level} value={level}>
+              {level}
+            </option>
+          ))}
         </select>
       </div>
       <div className={css.priceContainer}>
         <label htmlFor="price">Price</label>
-        <select id={price} value={price} onChange={handleChangePrice}>
+        <select
+          id="price"
+          name="price"
+          value={filters.price}
+          onChange={handleChange}
+        >
           <option value="">Select</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+          {uniquePrices.map(price => (
+            <option key={price} value={price}>
+              {price}$
+            </option>
+          ))}
         </select>
       </div>
     </div>
