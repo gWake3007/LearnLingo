@@ -1,4 +1,4 @@
-/* .container {
+.container {
   width: 583px;
   height: 74px;
   display: flex;
@@ -6,7 +6,64 @@
   gap: 20px;
 }
 
-.container label {
+.languagesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  width: 221px;
+}
+
+.levelOfKnowledgeWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  width: 221px;
+}
+
+.priceWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  width: 221px;
+}
+
+.customSelect {
+  position: relative;
+}
+
+.customSelect select {
+  width: 100%;
+  padding: 12px 18px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 14px;
+  border: none;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.arrowIcon {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+  stroke: var(--black);
+  fill: var(--white);
+}
+
+.rotated {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* .container label {
   font-family: Roboto;
   font-weight: 500;
   font-size: 14px;
@@ -93,44 +150,3 @@
 .priceContainer select {
   padding: 12px 18px;
 } */
-
-.selectWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  position: relative;
-  width: 221px;
-}
-
-.customSelect {
-  position: relative;
-}
-
-.customSelect select {
-  width: 100%;
-  padding: 12px 18px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  font-size: 18px;
-  font-weight: 500;
-  border-radius: 14px;
-  border: none;
-  background-color: var(--white);
-  color: var(--black);
-}
-
-.arrowIcon {
-  position: absolute;
-  top: 50%;
-  right: 1rem;
-  transform: translateY(-50%);
-  transition: transform 0.3s ease;
-  pointer-events: none;
-  stroke: var(--black);
-  fill: var(--white);
-}
-
-.rotated {
-  transform: translateY(-50%) rotate(180deg);
-}

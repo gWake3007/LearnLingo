@@ -27,20 +27,24 @@ const SelectOptions = () => {
     price: '',
   });
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [openSelect, setOpenSelect] = useState(null);
+
+  const handleFocus = name => {
+    setOpenSelect(name);
+  };
 
   const handleChange = e => {
     const { name, value } = e.target;
     setFilters(prev => ({ ...prev, [name]: value }));
-  };
 
-  const toggleOpen = () => {
-    setIsOpen(prev => !prev);
+    setTimeout(() => {
+      setOpenSelect(null);
+    }, 150);
   };
 
   return (
     <div className={css.container}>
-      <div className={css.selectWrapper}>
+      <div className={css.languagesWrapper}>
         <label htmlFor="languages">Languages</label>
         <div className={css.customSelect}>
           <select
@@ -48,8 +52,7 @@ const SelectOptions = () => {
             name="languages"
             value={filters.languages}
             onChange={handleChange}
-            onClick={toggleOpen}
-            onBlur={() => setIsOpen(false)}
+            onFocus={() => handleFocus('languages')}
           >
             <option value="">Select</option>
             {uniqueLanguages.map(lang => (
@@ -59,7 +62,9 @@ const SelectOptions = () => {
             ))}
           </select>
           <svg
-            className={`${css.arrowIcon} ${isOpen ? css.rotated : ''}`}
+            className={`${css.arrowIcon} ${
+              openSelect === 'languages' ? css.rotated : ''
+            }`}
             width="20"
             height="20"
           >
@@ -68,7 +73,7 @@ const SelectOptions = () => {
         </div>
       </div>
 
-      <div className={css.selectWrapper}>
+      <div className={css.levelOfKnowledgeWrapper}>
         <label htmlFor="levelOfKnowledge">Level of knowledge</label>
         <div className={css.customSelect}>
           <select
@@ -76,8 +81,7 @@ const SelectOptions = () => {
             name="levelOfKnowledge"
             value={filters.levelOfKnowledge}
             onChange={handleChange}
-            onClick={toggleOpen}
-            onBlur={() => setIsOpen(false)}
+            onFocus={() => handleFocus('levelOfKnowledge')}
           >
             <option value="">Select</option>
             {uniqueLevels.map(level => (
@@ -87,7 +91,9 @@ const SelectOptions = () => {
             ))}
           </select>
           <svg
-            className={`${css.arrowIcon} ${isOpen ? css.rotated : ''}`}
+            className={`${css.arrowIcon} ${
+              openSelect === 'levelOfKnowledge' ? css.rotated : ''
+            }`}
             width="20"
             height="20"
           >
@@ -96,7 +102,7 @@ const SelectOptions = () => {
         </div>
       </div>
 
-      <div className={css.selectWrapper}>
+      <div className={css.priceWrapper}>
         <label htmlFor="price">Price</label>
         <div className={css.customSelect}>
           <select
@@ -104,8 +110,7 @@ const SelectOptions = () => {
             name="price"
             value={filters.price}
             onChange={handleChange}
-            onClick={toggleOpen}
-            onBlur={() => setIsOpen(false)}
+            onFocus={() => handleFocus('price')}
           >
             <option value="">Select</option>
             {uniquePrices.map(price => (
@@ -115,7 +120,9 @@ const SelectOptions = () => {
             ))}
           </select>
           <svg
-            className={`${css.arrowIcon} ${isOpen ? css.rotated : ''}`}
+            className={`${css.arrowIcon} ${
+              openSelect === 'price' ? css.rotated : ''
+            }`}
             width="20"
             height="20"
           >
