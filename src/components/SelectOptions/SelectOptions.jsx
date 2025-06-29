@@ -1,7 +1,7 @@
 import css from './SelectOptions.module.css';
 import { useState, useMemo } from 'react';
-import { selectTeachers } from '../../redux/teachers/selectors.js';
 import { useSelector } from 'react-redux';
+import { selectTeachers } from '../../redux/teachers/selectors.js';
 
 const SelectOptions = () => {
   const teachers = useSelector(selectTeachers);
@@ -17,8 +17,8 @@ const SelectOptions = () => {
   }, [teachers]);
 
   const uniqueLevels = useMemo(() => {
-    const allLevels = teachers.flatMap(t => t.levels || []);
-    return [...new Set(allLevels)].sort();
+    const all = teachers.flatMap(t => t.levels || []);
+    return [...new Set(all)].sort();
   }, [teachers]);
 
   const [filters, setFilters] = useState({
@@ -29,17 +29,14 @@ const SelectOptions = () => {
 
   const [openSelect, setOpenSelect] = useState(null);
 
-  const handleFocus = name => {
-    setOpenSelect(name);
+  const handleMouseDown = name => {
+    setOpenSelect(prev => (prev === name ? null : name));
   };
 
   const handleChange = e => {
     const { name, value } = e.target;
     setFilters(prev => ({ ...prev, [name]: value }));
-
-    setTimeout(() => {
-      setOpenSelect(null);
-    }, 150);
+    setTimeout(() => setOpenSelect(null), 150);
   };
 
   return (
@@ -52,7 +49,9 @@ const SelectOptions = () => {
             name="languages"
             value={filters.languages}
             onChange={handleChange}
-            onFocus={() => handleFocus('languages')}
+            onFocus={() => setOpenSelect('languages')}
+            onBlur={() => setTimeout(() => setOpenSelect(null), 150)}
+            onMouseDown={() => handleMouseDown('languages')}
           >
             <option value="">Select</option>
             {uniqueLanguages.map(lang => (
@@ -72,7 +71,6 @@ const SelectOptions = () => {
           </svg>
         </div>
       </div>
-
       <div className={css.levelOfKnowledgeWrapper}>
         <label htmlFor="levelOfKnowledge">Level of knowledge</label>
         <div className={css.customSelect}>
@@ -81,7 +79,9 @@ const SelectOptions = () => {
             name="levelOfKnowledge"
             value={filters.levelOfKnowledge}
             onChange={handleChange}
-            onFocus={() => handleFocus('levelOfKnowledge')}
+            onFocus={() => setOpenSelect('levelOfKnowledge')}
+            onBlur={() => setTimeout(() => setOpenSelect(null), 150)}
+            onMouseDown={() => handleMouseDown('levelOfKnowledge')}
           >
             <option value="">Select</option>
             {uniqueLevels.map(level => (
@@ -101,7 +101,6 @@ const SelectOptions = () => {
           </svg>
         </div>
       </div>
-
       <div className={css.priceWrapper}>
         <label htmlFor="price">Price</label>
         <div className={css.customSelect}>
@@ -110,7 +109,9 @@ const SelectOptions = () => {
             name="price"
             value={filters.price}
             onChange={handleChange}
-            onFocus={() => handleFocus('price')}
+            onFocus={() => setOpenSelect('price')}
+            onBlur={() => setTimeout(() => setOpenSelect(null), 150)}
+            onMouseDown={() => handleMouseDown('price')}
           >
             <option value="">Select</option>
             {uniquePrices.map(price => (
